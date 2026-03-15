@@ -21,7 +21,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import matplotlib
-matplotlib.use("Agg")           # non-interactive backend (works in containers)
+matplotlib.use("Agg")          
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 from matplotlib.gridspec import GridSpec
@@ -53,7 +53,6 @@ def summary_stats(series: pd.Series) -> dict:
 
 
 def write_summary(stats: dict, sample: str, path: Path):
-    """Write a human-readable summary text file."""
     lines = [
         f"Read Statistics Summary — {sample}",
         "=" * 50,
@@ -107,6 +106,7 @@ def plot_gc(ax, gc_series):
     ax.set_title("GC Content Distribution", fontsize=13, fontweight="bold")
     ax.set_xlim(0, 100)
     ax.xaxis.set_major_formatter(mticker.FormatStrFormatter("%.0f%%"))
+  
 
 
 def plot_lengths(ax, len_series):
