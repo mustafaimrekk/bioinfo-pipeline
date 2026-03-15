@@ -64,7 +64,6 @@ nextflow.config           # Pipeline config and profiles
 modules/                  # One .nf file per pipeline step
 scripts/                  # Python scripts for stats and plotting
 config/environment.yml    # Conda environment (fully reproducible)
-docs/                     # Email draft to the professor
 ```
 
 ---
