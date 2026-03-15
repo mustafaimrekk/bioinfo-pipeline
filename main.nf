@@ -1,5 +1,6 @@
 nextflow.enable.dsl = 2
 
+include { GENERATE_REPORT } from './modules/generate_report'
 include { NANOPLOT_QC        } from './modules/nanoplot_qc'
 include { COMPUTE_READ_STATS } from './modules/compute_read_stats'
 include { VISUALISE_STATS    } from './modules/visualise_stats'
@@ -17,6 +18,7 @@ workflow {
     NANOPLOT_QC(reads_ch)
     COMPUTE_READ_STATS(reads_ch)
     VISUALISE_STATS(COMPUTE_READ_STATS.out.csv)
+    GENERATE_REPORT(VISUALISE_STATS.out.summary)
 }
 
 workflow.onComplete {
